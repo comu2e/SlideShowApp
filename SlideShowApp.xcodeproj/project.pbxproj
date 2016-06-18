@@ -12,6 +12,10 @@
 		25FD077C1D15CE41008D1946 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25FD077A1D15CE41008D1946 /* Main.storyboard */; };
 		25FD077E1D15CE41008D1946 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25FD077D1D15CE41008D1946 /* Assets.xcassets */; };
 		25FD07811D15CE41008D1946 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25FD077F1D15CE41008D1946 /* LaunchScreen.storyboard */; };
+		25FD07891D15CE96008D1946 /* EnlargedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FD07881D15CE96008D1946 /* EnlargedImageViewController.swift */; };
+		25FD078D1D15CEA3008D1946 /* b67824b20552ad199d7e26631aafb3a9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25FD078A1D15CEA3008D1946 /* b67824b20552ad199d7e26631aafb3a9.jpg */; };
+		25FD078E1D15CEA3008D1946 /* 327cb_314_26f7371e_7ef65900-m.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25FD078B1D15CEA3008D1946 /* 327cb_314_26f7371e_7ef65900-m.jpg */; };
+		25FD078F1D15CEA3008D1946 /* imgres.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25FD078C1D15CEA3008D1946 /* imgres.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		25FD077D1D15CE41008D1946 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25FD07801D15CE41008D1946 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25FD07821D15CE41008D1946 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25FD07881D15CE96008D1946 /* EnlargedImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnlargedImageViewController.swift; sourceTree = "<group>"; };
+		25FD078A1D15CEA3008D1946 /* b67824b20552ad199d7e26631aafb3a9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = b67824b20552ad199d7e26631aafb3a9.jpg; sourceTree = "<group>"; };
+		25FD078B1D15CEA3008D1946 /* 327cb_314_26f7371e_7ef65900-m.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "327cb_314_26f7371e_7ef65900-m.jpg"; sourceTree = "<group>"; };
+		25FD078C1D15CEA3008D1946 /* imgres.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = imgres.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +48,9 @@
 			children = (
 				25FD07751D15CE41008D1946 /* SlideShowApp */,
 				25FD07741D15CE41008D1946 /* Products */,
+				25FD078A1D15CEA3008D1946 /* b67824b20552ad199d7e26631aafb3a9.jpg */,
+				25FD078B1D15CEA3008D1946 /* 327cb_314_26f7371e_7ef65900-m.jpg */,
+				25FD078C1D15CEA3008D1946 /* imgres.jpg */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +65,7 @@
 		25FD07751D15CE41008D1946 /* SlideShowApp */ = {
 			isa = PBXGroup;
 			children = (
+				25FD07881D15CE96008D1946 /* EnlargedImageViewController.swift */,
 				25FD07761D15CE41008D1946 /* AppDelegate.swift */,
 				25FD07781D15CE41008D1946 /* ViewController.swift */,
 				25FD077A1D15CE41008D1946 /* Main.storyboard */,
@@ -123,7 +135,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25FD078E1D15CEA3008D1946 /* 327cb_314_26f7371e_7ef65900-m.jpg in Resources */,
 				25FD07811D15CE41008D1946 /* LaunchScreen.storyboard in Resources */,
+				25FD078F1D15CEA3008D1946 /* imgres.jpg in Resources */,
+				25FD078D1D15CEA3008D1946 /* b67824b20552ad199d7e26631aafb3a9.jpg in Resources */,
 				25FD077E1D15CE41008D1946 /* Assets.xcassets in Resources */,
 				25FD077C1D15CE41008D1946 /* Main.storyboard in Resources */,
 			);
@@ -138,6 +153,7 @@
 			files = (
 				25FD07791D15CE41008D1946 /* ViewController.swift in Sources */,
 				25FD07771D15CE41008D1946 /* AppDelegate.swift in Sources */,
+				25FD07891D15CE96008D1946 /* EnlargedImageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
