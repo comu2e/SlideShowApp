@@ -9,10 +9,14 @@
 import UIKit
 
 class EnlargedImageViewController: UIViewController {
-
+    
+    @IBOutlet weak var enlarge_viewer: UIImageView!
+    
+    var enlarged_image:UIImage!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        enlarge_viewer.image = enlarged_image
         // Do any additional setup after loading the view.
     }
 
@@ -21,15 +25,4 @@ class EnlargedImageViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
