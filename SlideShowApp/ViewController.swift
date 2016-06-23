@@ -18,11 +18,14 @@ class ViewController: UIViewController {
             ]
     let length_image = 3
     var index = 0
-   
-    
+    var judge_count = 1
+ 
     //スライドショーを表示するslideShowViewer
     @IBOutlet weak var slideShowViewer: UIImageView!
     
+    @IBAction func judge_start_or_stop(sender: AnyObject) {
+        judge_count *= -1
+    }
     //拡大するボタン
     @IBAction func enlargeImage(sender: AnyObject) {
         
@@ -65,27 +68,44 @@ class ViewController: UIViewController {
         /*
          拡大画面にいま表示しているimages[index]を渡したいと思って次のように書いています
          */
-    enlarged_view_controller.enlarged_image = images[index] as! UIImage
-        
+        if index == 0{
+    enlarged_view_controller.enlarged_image = images[0] as! UIImage
+        }
+        else{
+            enlarged_view_controller.enlarged_image = images[index-1] as! UIImage
+
+        }
     }
     
     /*タイマー機能（作りかけ）
-    var timerOfChangeImages:NSTimer!
-    
-    func TimerChangeImages(){
-        timerOfChangeImages = NSTimer.scheduledTimerWithTimeInterval(0.2,
-                                                                     target: self,
-                                                                     selector: Selector("next"),
-                                                                     userInfo: nil
-                                                                     repeats: true)
-    }
+    NSTimer.scheduledTimerWithTimeInterval内でusertInfoをつかって
+    引数index,length_image_countを渡す方法がわからなかったのでcall_next()を作製
+  
     */
+    
+    func call_next() {
+        next(index, length_image_count: 3)
 
+    }
+    
+    
        override func viewDidLoad() {
         super.viewDidLoad()
         //最初にindex = 0の画像をslideshowViewerに表示
+
+        
         slideShowViewer.image = (images[index] as! UIImage)
         
+        let timer = NSTimer.scheduledTimerWithTimeInterval(2.0,
+                                                           target: self,
+                                                           selector: #selector(ViewController.call_next), userInfo: nil,
+                                                           repeats: true)
+        if self.judge_count == 1{
+        timer.fire()
+        }
+        else{
+        timer.invalidate()
+        }
         
         
         
