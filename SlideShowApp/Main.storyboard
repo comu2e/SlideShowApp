@@ -106,7 +106,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDM-WG-Y9W">
-                                <rect key="frame" x="300" y="570" width="30" height="30"/>
+                                <rect key="frame" x="301" y="544" width="30" height="30"/>
                                 <state key="normal" title="戻る"/>
                                 <connections>
                                     <segue destination="sr3-Io-DAc" kind="unwind" unwindAction="unwind:" id="Zy3-Ho-D7S"/>
@@ -115,9 +115,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kDM-WG-Y9W" firstAttribute="centerX" secondItem="kT6-Nx-RWX" secondAttribute="centerX" constant="15" id="2oi-Vk-pbF"/>
+                            <constraint firstItem="kDM-WG-Y9W" firstAttribute="centerX" secondItem="kT6-Nx-RWX" secondAttribute="centerX" constant="16" id="2oi-Vk-pbF"/>
                             <constraint firstItem="jQv-Dm-qki" firstAttribute="top" secondItem="kT6-Nx-RWX" secondAttribute="top" id="D6b-NU-jRK"/>
-                            <constraint firstItem="kDM-WG-Y9W" firstAttribute="centerY" secondItem="kT6-Nx-RWX" secondAttribute="centerY" constant="285" id="HBB-hJ-Wyv"/>
+                            <constraint firstItem="kDM-WG-Y9W" firstAttribute="centerY" secondItem="kT6-Nx-RWX" secondAttribute="centerY" constant="259" id="HBB-hJ-Wyv"/>
                             <constraint firstItem="jQv-Dm-qki" firstAttribute="centerX" secondItem="kT6-Nx-RWX" secondAttribute="centerX" id="HeN-uw-juS"/>
                             <constraint firstItem="jQv-Dm-qki" firstAttribute="centerY" secondItem="kT6-Nx-RWX" secondAttribute="centerY" id="OmP-H4-aI9"/>
                             <constraint firstItem="jQv-Dm-qki" firstAttribute="centerY" secondItem="kT6-Nx-RWX" secondAttribute="centerY" id="Rc4-z3-mrJ"/>
