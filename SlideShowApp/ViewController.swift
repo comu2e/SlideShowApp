@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class ViewController: UIViewController {
     //画像
     let images =
@@ -16,100 +18,109 @@ class ViewController: UIViewController {
             UIImage(named:"image2.jpg")as! AnyObject,
             UIImage(named:"image3.jpg")as! AnyObject
             ]
+    
     let length_image = 3
     var index = 0
     var judge_count = 1
- 
+    var timer:NSTimer! = nil //初期値は入っていない letじゃなくてvar nilいれておく
+    //self　引数がおなじ
+    
     //スライドショーを表示するslideShowViewer
     @IBOutlet weak var slideShowViewer: UIImageView!
     
-    @IBAction func judge_start_or_stop(sender: AnyObject) {
-        judge_count *= -1
-    }
-    //拡大するボタン
-    @IBAction func enlargeImage(sender: AnyObject) {
-        
-    }
+   
+    
+    @IBOutlet weak var stop_or_start_label: UILabel!
+    
+    //拡大するボタン（）
+    
     //次の画像に行くボタン，ここでnextを呼ぶ
     @IBAction func nextButton(sender: AnyObject) {
-        next(index, length_image_count: length_image)
+        next()
     }
     //前の画像に戻るボタン，ここでbackを呼ぶ
     @IBAction func backButton(sender: AnyObject) {
-       back(index, length_image_count: length_image)
+       back()
     }
     
-    //次の画像を表示してそのインデックスを返す関数
-    func next(index:Int,length_image_count:Int){
-        self.index = (index+1) % length_image_count
-        self.slideShowViewer.image = (images[index] as! UIImage)
+    //次の画像を表示する関数
+    func next(){
+        //引数index,length_image_countはなぜ？
+        //viewcontrollerが持っている->引数はいらない
+        //引数は基本的に必要か？
+        //インスタンス変数
+        
+        self.index = (self.index+1) % self.length_image
+        self.slideShowViewer.image = (images[self.index] as! UIImage)
+        
     }
     
-
-    //前の画像を表示してそのインデックスを返す関数
-    func back(index:Int,length_image_count:Int) {
+    //前の画像を表示する関数
+    func back() {
+        //indexはクラスの変数
+        //
         //indexが0のときindex-1は-1になり配列[-1]はout of rangeとなるため条件分岐しておく
-        if index == 0 {
-            self.index = length_image_count
-            self.index = (self.index - 1)
-            self.slideShowViewer.image = (images[index] as! UIImage)
+        
+        //ここをしっかり考える
+        self.index = (self.index - 1 + self.length_image) % self.length_image
+        self.slideShowViewer.image = (images[self.index] as! UIImage)
+        
+    }
+
+    
+    @IBOutlet weak var start_stop: UIButton!
+    
+    @IBAction func judge_count_start(sender: AnyObject) {
+        
+        if timer != nil {
+//            timerがnilじゃないか先に調べる
+//            timer動かすときはイチから作るー＞timer=nil timerが動いている時
+            
+           timer.invalidate()
+            timer = nil
+            self.start_stop.setTitle("Resume", forState: UIControlState.Normal)
             
         }
         else{
-            self.index = (index-1) % length_image_count
-            self.slideShowViewer.image = (images[index] as! UIImage)
+          timer = NSTimer.scheduledTimerWithTimeInterval(2.0,
+                                                        target: self,
+                                                        selector: #selector(ViewController.next), userInfo: nil,
+                                                        repeats: true)
+            self.start_stop.setTitle("Playing", forState: UIControlState.Normal)
         }
+        
+        
     }
     
     
+
     //EnlargedViewerに送る写真を用意しておく
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let enlarged_view_controller:EnlargedImageViewController = segue.destinationViewController as! EnlargedImageViewController
-        /*
-         拡大画面にいま表示しているimages[index]を渡したいと思って次のように書いています
-         */
-        if index == 0{
-    enlarged_view_controller.enlarged_image = images[0] as! UIImage
-        }
-        else{
-            enlarged_view_controller.enlarged_image = images[index-1] as! UIImage
-
-        }
+    
+    //次の画面には遷移前の正しい画像がおくられないことがある
+        //imagesのindexの値域 index　−１になってたから
+    enlarged_view_controller.enlarged_image = images[self.index] as! UIImage
+        
+        
     }
     
-    /*タイマー機能（作りかけ）
-    NSTimer.scheduledTimerWithTimeInterval内でusertInfoをつかって
-    引数index,length_image_countを渡す方法がわからなかったのでcall_next()を作製
   
-    */
-    
-    func call_next() {
-        next(index, length_image_count: 3)
-
-    }
     
     
-       override func viewDidLoad() {
+  
+    override func viewDidLoad() {
         super.viewDidLoad()
         //最初にindex = 0の画像をslideshowViewerに表示
 
         
         slideShowViewer.image = (images[index] as! UIImage)
-        
-        let timer = NSTimer.scheduledTimerWithTimeInterval(2.0,
-                                                           target: self,
-                                                           selector: #selector(ViewController.call_next), userInfo: nil,
-                                                           repeats: true)
-        if self.judge_count == 1{
-        timer.fire()
-        }
-        else{
-        timer.invalidate()
-        }
-        
+    
         
         
     }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

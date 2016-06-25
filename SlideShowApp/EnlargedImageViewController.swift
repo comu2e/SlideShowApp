@@ -11,8 +11,9 @@ import UIKit
 class EnlargedImageViewController: UIViewController {
     
     @IBOutlet weak var enlarge_viewer: UIImageView!
-    
     var enlarged_image:UIImage!
+    
+    @IBOutlet weak var show_index_enlarge: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
